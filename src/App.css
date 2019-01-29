@@ -11,7 +11,7 @@ body{
 */
 .landingPage{
   display: grid;
-  height: 85vh;
+  min-height: 85vh;
   grid-template-rows: 50% 20% 15% 15%;
 }
 
@@ -22,6 +22,7 @@ h2{
 
 .searchPage{
   display: grid;
-  height: 85vh;
+  min-height: 85vh;
+  height: auto;
   grid-template-rows: 30% auto;
 }

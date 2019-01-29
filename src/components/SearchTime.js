@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from './parts/Button.js'
+import Button from './parts/LargeButton.js'
 
 export default function LandingPage() {
   return (
