@@ -1,14 +1,6 @@
 import React, { Component } from 'react'
 
-export default class LargeButton extends Component {
-
-
-  state={
-    text: '',
-    width: '200px',
-    onClick: '',
-  }
-  //nepouzivam momentalne trosku shite
+export default class BackButton extends Component {
 
   
   render() {
@@ -22,16 +14,15 @@ export default class LargeButton extends Component {
 }
 
 const btn = {
-  padding: '15px 15px',
-  backgroundColor: 'white',
+  padding: '10px 10px',
+  backgroundColor: 'lightgrey',
   textAlign: 'center',
   margin: '0 auto',
-  fontSize: '1.5em',
-  width: '210px',
+  fontSize: '1.2em',
+  width: '80px',
   color: '#000',
   borderRadius: '3px',
   fontWeight: 'bold',
   cursor: 'pointer',
   boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
 }
-

@@ -15,14 +15,30 @@ body{
   grid-template-rows: 50% 20% 15% 15%;
 }
 
+
+
 h2{
   text-align: center;
   font-size: 3em;
+  margin: 0;
 }
 
 .searchPage{
   display: grid;
   min-height: 85vh;
+  grid-template-rows: 30% auto 40px;
+}
+
+.searchGenre{
+  display: grid;
+  min-height: 85vh;
+  grid-template-rows: 15% auto 40px;
+}
+
+
+.searchResult{
+  display: grid;
+  min-height: 85vh;
   height: auto;
-  grid-template-rows: 30% auto;
+  grid-template-rows: 35% auto;
 }

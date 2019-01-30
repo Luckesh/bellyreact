@@ -6,6 +6,8 @@ export default class Button extends Component {
   state={
     text: '',
     width: '200px',
+    onClick: '',
+    
   }
   //nepouzivam momentalne trosku shite
   getStyle = () => {
@@ -18,7 +20,7 @@ export default class Button extends Component {
   render() {
     return (
       <div>
-        <p style={btn} >{this.props.text}</p>
+        <p onClick={this.props.onClick} style={btn} >{this.props.text}</p>
       </div>
     )
   }

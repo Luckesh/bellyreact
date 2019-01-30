@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header.js'
-import LandingPage from './components/LandingPage'
-import SearchNumber from './components/SearchNumber'
-import SearchTime from './components/SearchTime'
-import SearchGenre from './components/SearchGenre'
+import GameFinder from './components/GameFinder.js'
+
 
 
 
@@ -14,7 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
-        <SearchGenre/>
+        <GameFinder/>
       </div>
     );
   }
