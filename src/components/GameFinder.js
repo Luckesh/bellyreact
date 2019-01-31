@@ -28,6 +28,12 @@ export class GameFinder extends Component {
     });
   };
 
+  newSearch = () => {
+    this.setState({
+      step: 1
+    });
+  };
+
   render() {
     const { step } = this.state;
     switch (step) {
@@ -49,7 +55,7 @@ export class GameFinder extends Component {
             );
         case 5:
             return(
-                <SearchResult prevStep ={this.prevStep} nextStep={this.nextStep}/>
+                <SearchResult newSearch={this.newSearch}/>
             )
         default:
             return(

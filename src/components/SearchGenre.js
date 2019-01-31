@@ -14,7 +14,8 @@ export class SearchGenre extends Component {
     }
 
     state = {
-        chosenGenres: [0, 0, 0, 0, 0, 0, 0]
+        chosenGenres: [0, 0, 0, 0, 0, 0, 0],
+        //showModal: false,
     }
 
     changeStatus(id) {

@@ -2,6 +2,8 @@ body{
   background-color:lightgoldenrodyellow;
   background-image: url(./images/zlybg.PNG);
   background-size: cover;
+  padding-bottom: 20px;
+  height: 100%;
 }
 /* toto by bolo dobre keby fungovalo
 .app>div{
@@ -40,5 +42,5 @@ h2{
   display: grid;
   min-height: 85vh;
   height: auto;
-  grid-template-rows: 35% auto;
+  grid-template-rows: 250px auto 40px;
 }

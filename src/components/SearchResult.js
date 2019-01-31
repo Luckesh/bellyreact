@@ -1,12 +1,15 @@
 import React, { Component }from 'react'
 import menaPic from '../images/mena.jpg'
 import catanPic from '../images/settlers.jpg'
+import Button from './parts/LargeButton.js'
+
 
 
 export class SearchResult extends Component {
-    
-    continue = e => {
-        this.props.nextStep();
+
+
+    startOver = e => {
+        this.props.newSearch();
     }
 
     changeStatus(id) {
@@ -27,6 +30,7 @@ export class SearchResult extends Component {
                     </div>    
                     <div style={hraCatan}>
                     </div>              
+                    <Button onClick={ this.startOver } text={"Nové vyhľadávanie"}/>
                 </div>        
             </div>
           )
