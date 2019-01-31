@@ -44,3 +44,7 @@ h2{
   height: auto;
   grid-template-rows: 250px auto 40px;
 }
+
+.ReactModalPortal h3{
+  margin-top: 0;
+}

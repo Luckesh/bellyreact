@@ -1,10 +1,32 @@
 import React, { Component }from 'react'
 import Button from './parts/ToggleButton.js'
 import BackButton from './parts/BackButton.js'
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root')
 
 
 export class SearchGenre extends Component {
-    
+
+    constructor () {
+        super();
+        this.state = {
+          showModal: false,
+          chosenGenres: [0, 0, 0, 0, 0, 0, 0],
+        };
+        
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
+      }
+      
+      handleOpenModal () {
+        this.setState({ showModal: true });
+      }
+      
+      handleCloseModal () {
+        this.setState({ showModal: false });
+      }
+
     continue = e => {
         this.props.nextStep();
     }
@@ -13,10 +35,6 @@ export class SearchGenre extends Component {
         this.props.prevStep();
     }
 
-    state = {
-        chosenGenres: [0, 0, 0, 0, 0, 0, 0],
-        //showModal: false,
-    }
 
     changeStatus(id) {
         let a = this.state.chosenGenres.slice(); 
@@ -29,7 +47,7 @@ export class SearchGenre extends Component {
         return (
             <div className='searchGenre'>
                 <div>
-                     <h2>Aký žáner <span style={help}>?</span></h2>  
+                     <h2>Aký žáner <span onClick={this.handleOpenModal} style={help}>?</span></h2>  
                        
                 </div>  
                 <div style={pole}>
@@ -45,7 +63,28 @@ export class SearchGenre extends Component {
                     </div>
                     <BackButton  onClick={this.backtrack} text="naspäť"/>
 
-                </div>        
+                </div>      
+
+                <Modal 
+                    isOpen={this.state.showModal}
+                    contentLabel="onRequestClose Example"
+                    style={modalStyle}
+
+                    onRequestClose={this.handleCloseModal}
+                >
+                    <span onClick={this.handleCloseModal} style={closeButton}>
+                        x
+                    </span>
+                    <h3>Eurogames</h3>
+                    <p>hry s nepriamou interakciou medzi hráčmi, majú abstraktné komponenty, kladú dôraz na stratégiu na úkor konfliktu medzi hráčmi a náhody. Spravidla hrajú všetci hráči dokonca.</p>
+                    <h3>Eurogames</h3>
+                    <p>hry s nepriamou interakciou medzi hráčmi, majú abstraktné komponenty, kladú dôraz na stratégiu na úkor konfliktu medzi hráčmi a náhody. Spravidla hrajú všetci hráči dokonca.</p>
+                    <h3>Eurogames</h3>
+                    <p>hry s nepriamou interakciou medzi hráčmi, majú abstraktné komponenty, kladú dôraz na stratégiu na úkor konfliktu medzi hráčmi a náhody. Spravidla hrajú všetci hráči dokonca.</p>
+                    <h3>Eurogames</h3>
+                    <p>hry s nepriamou interakciou medzi hráčmi, majú abstraktné komponenty, kladú dôraz na stratégiu na úkor konfliktu medzi hráčmi a náhody. Spravidla hrajú všetci hráči dokonca.</p>
+                </Modal>
+
             </div>
             
           )
@@ -86,4 +125,20 @@ const cta = {
     cursor: 'pointer',
     boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
 
+}
+
+const modalStyle = {
+    content:{
+        backgroundColor: 'lightyellow',
+        color: '#807162',
+        fontSize: '15px'
+    }
+}
+
+
+const closeButton = {
+    position: 'fixed',
+    top: '62px',
+    right: '60px',
+    color: 'lightgrey',
 }
