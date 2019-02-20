@@ -10,6 +10,11 @@ export class GameFinder extends Component {
 
     state = {
         step: 1,
+        genres: [0, 0, 0, 0, 0, 0, 0],
+        number: 0,
+        minTime: 15,
+        maxTime: 60,
+        response: [],
     };
 
      // Proceed to next step
@@ -28,6 +33,29 @@ export class GameFinder extends Component {
     });
   };
 
+  changeNumber = id => {
+      this.setState({number:id})
+  }
+
+  changeTime = bounds => {
+      this.setState({minTime:bounds[0]});
+      this.setState({maxTime:bounds[1]});
+
+  }
+
+  changeGenre = genres => {
+      console.log(genres);
+      this.setState({genres: genres});
+  }
+
+  fetchGames = () => {
+     fetch('http://192.168.0.19/backend/slim/public/api/boardgames')    
+    .then(response => response.json())    
+    .then(response => this.setState({response}))
+    //.then(return(this.state.response));
+    //return this.state.response;
+  }
+
   newSearch = () => {
     this.setState({
       step: 1
@@ -43,19 +71,19 @@ export class GameFinder extends Component {
             );
         case 2:
             return(
-                <SearchNumber prevStep ={this.prevStep} nextStep={this.nextStep}/>
+                <SearchNumber changeNumber={this.changeNumber} prevStep ={this.prevStep} nextStep={this.nextStep}/>
             );
         case 3:
             return(
-                <SearchTime prevStep ={this.prevStep} nextStep={this.nextStep}/>
+                <SearchTime changeTime={this.changeTime} prevStep ={this.prevStep} nextStep={this.nextStep}/>
             );
         case 4:
             return(
-                <SearchGenre prevStep ={this.prevStep} nextStep={this.nextStep}/>
+                <SearchGenre changeGenre={this.changeGenre} prevStep ={this.prevStep} nextStep={this.nextStep}/>
             );
         case 5:
             return(
-                <SearchResult newSearch={this.newSearch}/>
+                <SearchResult response={this.state.response} fetchGames={this.fetchGames} newSearch={this.newSearch}/>
             )
         default:
             return(

@@ -4,6 +4,7 @@ body{
   background-size: cover;
   padding-bottom: 20px;
   height: 100%;
+  text-align: center;
 }
 /* toto by bolo dobre keby fungovalo
 .app>div{
@@ -29,6 +30,12 @@ h2{
   display: grid;
   min-height: 85vh;
   grid-template-rows: 30% auto 40px;
+}
+
+.searchTime{
+  display: grid;
+  min-height: 85vh;
+  grid-template-rows: 30% 25% auto 40px;
 }
 
 .searchGenre{
