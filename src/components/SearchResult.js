@@ -6,7 +6,12 @@ import Button from './parts/LargeButton.js'
 
 
 export class SearchResult extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: null,
+        };
+    }
 
     startOver = e => {
         this.props.newSearch();
@@ -18,6 +23,34 @@ export class SearchResult extends Component {
         this.setState({chosenGenres: a});
     }
 
+    componentDidMount() {
+        
+        fetch('http://slim/api/boardgames')    
+        .then(response => response.json())    
+        .then(response => this.setState({response}));
+        
+        /*
+       fetch('./slim/api/customer')
+       .then(console.log(response.text()))
+       .then(
+         function(response) {
+           if (response.status !== 200) {
+             console.log('Looks like there was a problem. Status Code: ' +
+               response.status);
+             return;
+           }
+     
+           // Examine the text in the response
+           response.json().then(function(data) {
+             console.log(data);
+           });
+         }
+       )
+       .catch(function(err) {
+         console.log('Fetch Error :-S', err);
+       });
+        */
+    }
     render(){
         return (
             <div className='searchResult'>
@@ -34,7 +67,7 @@ export class SearchResult extends Component {
                 </div>        
             </div>
           )
-    }
+    } 
     
 }
 
