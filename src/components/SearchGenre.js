@@ -40,6 +40,8 @@ export class SearchGenre extends Component {
         let a = this.state.chosenGenres.slice(); 
         a[id]=1-a[id];
         this.setState({chosenGenres: a});
+        console.log(this.state.chosenGenres);
+        this.props.changeGenre(a);
     }
 
     render(){

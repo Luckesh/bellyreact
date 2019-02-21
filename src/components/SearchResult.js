@@ -25,9 +25,7 @@ export class SearchResult extends Component {
 
     componentDidMount() {
         
-        fetch('http://slim/api/boardgames')    
-        .then(response => response.json())    
-        .then(response => this.setState({response}));
+        this.props.fetchGames();
         
         /*
        fetch('./slim/api/customer')
@@ -53,6 +51,7 @@ export class SearchResult extends Component {
     }
     render(){
         return (
+            
             <div className='searchResult'>
                 <div>
                      <h2>Ďakujeme! Našli sme pre Vás tieto hry:</h2>  
