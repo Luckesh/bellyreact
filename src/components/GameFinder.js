@@ -49,7 +49,8 @@ export class GameFinder extends Component {
   }
 
   fetchGames = () => {
-     fetch('http://192.168.0.19/backend/slim/public/api/boardgames')    
+      console.log('http://192.168.0.19/backend/slim/public/api/boardgames/number='+this.state.number+'&mintime='+this.state.minTime+'&maxtime='+this.state.maxTime+'&genres='+this.state.genres);
+     fetch('http://192.168.0.19/backend/slim/public/api/boardgames/number='+this.state.number+'&mintime='+this.state.minTime+'&maxtime='+this.state.maxTime+'&genres=['+this.state.genres+']')    
     .then(response => response.json())    
     .then(response => this.setState({response}))
     //.then(return(this.state.response));
