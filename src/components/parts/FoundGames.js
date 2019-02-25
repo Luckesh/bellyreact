@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import FoundGame from './FoundGame.js'
+import Button from './LargeButton.js'
+
 
 
 export class FoundGames extends Component {
@@ -30,13 +32,15 @@ export class FoundGames extends Component {
             );
         }*/
         return(
-          <FoundGame key={'key'+game['id']}game={game}/>
+          <FoundGame chooseGame={this.props.chooseGame} key={game['id']}game={game}/>
         )
       
         
         
         })
       }
+      <Button onClick={ this.props.startOver } text={"Nové vyhľadávanie"}/>
+
       </div>
         
       )

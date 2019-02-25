@@ -33,11 +33,11 @@ export class FoundGame extends Component {
       backgroundSize: 'cover',
       backgroundPosition: 'top center',
       borderRadius: '4px', 
+      cursor: 'pointer',
     }
     
     return (
-      <div style={hra}>
-        
+      <div onClick={() => this.props.chooseGame(this.props.game['id'])}style={hra}>        
         <p>{this.props.game['name']}</p>
       </div>
     )

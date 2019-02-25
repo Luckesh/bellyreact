@@ -109,4 +109,5 @@ const pole = {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr',
     gridGap: '10px',
+    marginBottom: '50px',
 }

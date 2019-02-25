@@ -1,5 +1,4 @@
 import React, { Component }from 'react'
-import Button from './parts/LargeButton.js'
 import FoundGames from './parts/FoundGames.js'
 
 
@@ -60,8 +59,7 @@ export class SearchResult extends Component {
                        
                 </div>  
                 <div>
-                    <FoundGames ahoj={2} response={this.props.response}/>
-                    <Button onClick={ this.startOver } text={"Nové vyhľadávanie"}/>
+                    <FoundGames chooseGame={this.props.chooseGame} startOver={ this.startOver } ahoj={2} response={this.props.response}/>
                 </div>        
             </div>
           )

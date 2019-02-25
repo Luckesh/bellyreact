@@ -4,6 +4,8 @@ import SearchNumber from './SearchNumber'
 import SearchTime from './SearchTime'
 import SearchGenre from './SearchGenre'
 import SearchResult from './SearchResult.js'
+import Game from './Game.js'
+
 
 
 export class GameFinder extends Component {
@@ -15,6 +17,7 @@ export class GameFinder extends Component {
         minTime: 15,
         maxTime: 60,
         response: [],
+        chosenGame: 0,
     };
 
      // Proceed to next step
@@ -32,6 +35,15 @@ export class GameFinder extends Component {
       step: step - 1
     });
   };
+
+ chooseGame = id => {
+    const { step } = this.state;
+    console.log("id je "+id);
+    this.setState({
+        step: step + 1,
+        chosenGame: id,
+    });
+ }
 
   changeNumber = id => {
       this.setState({number:id})
@@ -59,7 +71,13 @@ export class GameFinder extends Component {
 
   newSearch = () => {
     this.setState({
-      step: 1
+        step: 1,
+        genres: [0, 0, 0, 0, 0, 0, 0],
+        number: 0,
+        minTime: 15,
+        maxTime: 60,
+        response: [],
+        chosenGame: 0,
     });
   };
 
@@ -84,7 +102,11 @@ export class GameFinder extends Component {
             );
         case 5:
             return(
-                <SearchResult response={this.state.response} fetchGames={this.fetchGames} newSearch={this.newSearch}/>
+                <SearchResult response={this.state.response} chooseGame={this.chooseGame} fetchGames={this.fetchGames} newSearch={this.newSearch}/>
+            )
+        case 6:
+            return(
+                <Game chosenGame={this.state.chosenGame} prevStep ={this.prevStep}/>
             )
         default:
             return(
