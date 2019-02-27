@@ -9,10 +9,12 @@ export class Game extends Component {
 
     state={
         response: [],
+        //countVisit: 1,
     }
 
     backtrack = e => {
         this.props.prevStep();
+        //this.setState({countVisit:0});
     }
 
 
