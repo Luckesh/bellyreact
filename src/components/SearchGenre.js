@@ -12,7 +12,14 @@ export class SearchGenre extends Component {
         super();
         this.state = {
           showModal: false,
-          chosenGenres: [0, 0, 0, 0, 0, 0, 0],
+          chosenGenres: {
+            "rodinné":0, 
+            "párty":0, 
+            "vojnové":0,
+            "eurohry":0,
+            "postrehové":0,
+            "kooperatívne":0,
+        },
         };
         
         this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -37,7 +44,7 @@ export class SearchGenre extends Component {
 
 
     changeStatus(id) {
-        let a = this.state.chosenGenres.slice(); 
+        let a = this.state.chosenGenres; 
         a[id]=1-a[id];
         this.setState({chosenGenres: a});
         console.log(this.state.chosenGenres);
@@ -53,13 +60,13 @@ export class SearchGenre extends Component {
                        
                 </div>  
                 <div style={pole}>
-                    <Button onClick={() => this.changeStatus(0)}  toggle={chosenGenres[0]} text='Social Deduction'/> 
-                    <Button onClick={() => this.changeStatus(1)}toggle={chosenGenres[1]} text='Eurogames'/>
-                    <Button onClick={() => this.changeStatus(2)}toggle={chosenGenres[2]} text='Postrehové'/>
-                    <Button onClick={() => this.changeStatus(3)}toggle={chosenGenres[3]} text='Rodinné'/>
-                    <Button onClick={() => this.changeStatus(4)}toggle={chosenGenres[4]} text='Vojnové'/>
-                    <Button onClick={() => this.changeStatus(5)}toggle={chosenGenres[5]} text='Párty hry'/>
-                    <Button onClick={() => this.changeStatus(6)}toggle={chosenGenres[6]} text='Kooperatívne'/>
+                    <Button onClick={() => this.changeStatus("rodinné")}toggle={chosenGenres["rodinné"]} text='Rodinné'/> 
+                    <Button onClick={() => this.changeStatus("párty")}toggle={chosenGenres["párty"]} text='Párty'/>
+                    <Button onClick={() => this.changeStatus("vojnové")}toggle={chosenGenres["vojnové"]} text='Vojnové'/>
+                    <Button onClick={() => this.changeStatus("eurohry")}toggle={chosenGenres["eurohry"]} text='Eurohry'/>
+                    <Button onClick={() => this.changeStatus("postrehové")}toggle={chosenGenres["postrehové"]} text='Postrehové'/>
+                    <Button onClick={() => this.changeStatus("kooperatívne")}toggle={chosenGenres["kooperatívne"]} text='Kooperatívne'/>
+                    
                     <div>
                         <p onClick={this.continue} style = {cta}>Vyhľadať</p>
                     </div>

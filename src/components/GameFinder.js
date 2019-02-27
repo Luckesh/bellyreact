@@ -12,7 +12,14 @@ export class GameFinder extends Component {
 
     state = {
         step: 1,
-        genres: [0, 0, 0, 0, 0, 0, 0],
+        genres: {
+            "rodinné":0, 
+            "párty":0, 
+            "vojnové":0,
+            "eurohry":0,
+            "postrehové":0,
+            "kooperatívne":0,
+        },
         number: 0,
         minTime: 15,
         maxTime: 60,
@@ -61,8 +68,8 @@ export class GameFinder extends Component {
   }
 
   fetchGames = () => {
-      console.log('http://192.168.0.19/backend/slim/public/api/boardgames/number='+this.state.number+'&mintime='+this.state.minTime+'&maxtime='+this.state.maxTime+'&genres='+this.state.genres);
-     fetch('http://192.168.0.19/backend/slim/public/api/boardgames/number='+this.state.number+'&mintime='+this.state.minTime+'&maxtime='+this.state.maxTime+'&genres=['+this.state.genres+']')    
+      console.log('http://192.168.0.19/backend/slim/public/api/boardgames/number='+this.state.number+'&mintime='+this.state.minTime+'&maxtime='+this.state.maxTime+'&genres='+JSON.stringify(this.state.genres));
+     fetch('http://192.168.0.19/backend/slim/public/api/boardgames/number='+this.state.number+'&mintime='+this.state.minTime+'&maxtime='+this.state.maxTime+'&genres='+JSON.stringify(this.state.genres))    
     .then(response => response.json())    
     .then(response => this.setState({response}))
     //.then(return(this.state.response));
@@ -72,7 +79,14 @@ export class GameFinder extends Component {
   newSearch = () => {
     this.setState({
         step: 1,
-        genres: [0, 0, 0, 0, 0, 0, 0],
+        genres: {
+            "rodinné":0, 
+            "párty":0, 
+            "vojnové":0,
+            "eurohry":0,
+            "postrehové":0,
+            "kooperatívne":0,
+        },
         number: 0,
         minTime: 15,
         maxTime: 60,
