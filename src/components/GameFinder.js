@@ -6,8 +6,6 @@ import SearchGenre from './SearchGenre'
 import SearchResult from './SearchResult.js'
 import Game from './Game.js'
 
-
-
 export class GameFinder extends Component {
 
     state = {
@@ -27,7 +25,6 @@ export class GameFinder extends Component {
         chosenGame: 0,
     };
 
-     // Proceed to next step
   nextStep = () => {
     const { step } = this.state;
     this.setState({
@@ -35,7 +32,6 @@ export class GameFinder extends Component {
     });
   };
 
-  // Go back to prev step
   prevStep = () => {
     const { step } = this.state;
     this.setState({
@@ -68,12 +64,10 @@ export class GameFinder extends Component {
   }
 
   fetchGames = () => {
-      console.log('http://192.168.0.19/backend/slim/public/api/boardgames/number='+this.state.number+'&mintime='+this.state.minTime+'&maxtime='+this.state.maxTime+'&genres='+JSON.stringify(this.state.genres));
-     fetch('http://192.168.0.19/backend/slim/public/api/boardgames/number='+this.state.number+'&mintime='+this.state.minTime+'&maxtime='+this.state.maxTime+'&genres='+JSON.stringify(this.state.genres))    
+    console.log('http://localhost/backend/slim/public/api/boardgames/number='+this.state.number+'&mintime='+this.state.minTime+'&maxtime='+this.state.maxTime+'&genres='+JSON.stringify(this.state.genres));
+    fetch('http://localhost/backend/slim/public/api/boardgames/number='+this.state.number+'&mintime='+this.state.minTime+'&maxtime='+this.state.maxTime+'&genres='+JSON.stringify(this.state.genres))    
     .then(response => response.json())    
     .then(response => this.setState({response}))
-    //.then(return(this.state.response));
-    //return this.state.response;
   }
 
   newSearch = () => {
@@ -124,7 +118,7 @@ export class GameFinder extends Component {
             )
         default:
             return(
-                <p>sumting wong</p>
+                <p>Something bad happened. Sorry!</p>
             );
     }
   }

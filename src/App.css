@@ -6,19 +6,12 @@ body{
   height: 100%;
   text-align: center;
 }
-/* toto by bolo dobre keby fungovalo
-.app>div{
-  display: grid;
-  height: 85vh;
-}
-*/
+
 .landingPage{
   display: grid;
   min-height: 85vh;
   grid-template-rows: 50% 20% 15% 15%;
 }
-
-
 
 h2{
   text-align: center;

@@ -2,15 +2,6 @@ import React, { Component } from 'react'
 
 export default class LargeButton extends Component {
 
-
-  state={
-    text: '',
-    width: '200px',
-    onClick: '',
-  }
-  //nepouzivam momentalne trosku shite
-
-  
   render() {
     return (
       <div>

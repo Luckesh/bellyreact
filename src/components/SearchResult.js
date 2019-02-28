@@ -1,9 +1,6 @@
 import React, { Component }from 'react'
 import FoundGames from './parts/FoundGames.js'
 
-
-
-
 export class SearchResult extends Component {
     constructor(props) {
         super(props);
@@ -23,40 +20,14 @@ export class SearchResult extends Component {
     }
 
     componentDidMount() {
-        
         this.props.fetchGames();
-        
-        /*
-       fetch('./slim/api/customer')
-       .then(console.log(response.text()))
-       .then(
-         function(response) {
-           if (response.status !== 200) {
-             console.log('Looks like there was a problem. Status Code: ' +
-               response.status);
-             return;
-           }
-     
-           // Examine the text in the response
-           response.json().then(function(data) {
-             console.log(data);
-           });
-         }
-       )
-       .catch(function(err) {
-         console.log('Fetch Error :-S', err);
-       });
-        */
     }
+
     render(){
-      console.log('props');
-      console.log(this.props.response);
-        return (
-            
+        return (      
             <div className='searchResult'>
                 <div>
                      <h2>Ďakujeme! Našli sme pre Vás tieto hry:</h2>  
-                       
                 </div>  
                 <div>
                     <FoundGames chooseGame={this.props.chooseGame} startOver={ this.startOver } ahoj={2} response={this.props.response}/>
@@ -64,15 +35,7 @@ export class SearchResult extends Component {
             </div>
           )
     } 
-    
 }
-
-/*
-<div style={hraMena}>
-                    </div>    
-                    <div style={hraCatan}>
-                    </div>  
-*/
 
 export default SearchResult
 

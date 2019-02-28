@@ -1,22 +1,6 @@
 import React, { Component } from 'react'
 
 export default class Button extends Component {
-
-
-  state={
-    text: '',
-    width: '200px',
-    onClick: '',
-    
-  }
-  //nepouzivam momentalne trosku shite
-  getStyle = () => {
-    return{
-      width: this.state.width,
-    }
-}
-
-  
   render() {
     return (
       <div>
@@ -24,7 +8,6 @@ export default class Button extends Component {
       </div>
     )
   }
-  
 }
 
 const btn = {

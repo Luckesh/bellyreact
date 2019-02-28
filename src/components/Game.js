@@ -9,53 +9,36 @@ export class Game extends Component {
 
     state={
         response: [],
-        //countVisit: 1,
     }
 
     backtrack = e => {
         this.props.prevStep();
-        //this.setState({countVisit:0});
     }
-
 
     componentDidMount(){
-    fetch('http://192.168.0.19/backend/slim/public/api/boardgames/'+this.props.chosenGame)    
+    fetch('http://localhost/backend/slim/public/api/boardgames/'+this.props.chosenGame)    
     .then(response => response.json())    
     .then(response => this.setState({response}));
-
- 
-
-
     }
+
   render() {
-    
-    
     return (
       <div>
           {
-              this.state.response.map(game => {
-
-            return(
-                <div>
-                    <h1>{game['name']}</h1>
-                    <h3><span><img src={timeIcon} style={icon} alt=""/></span>{game['playtime']} min <span><img src={numberIcon} style={icon} alt=""/></span>{game['min']}-{game['max']} hráčov</h3>
-                    <p>{game['description']}</p>
-                </div>
-
-
-            )
-          
-            
-            
-            })
+            this.state.response.map(game => {
+              return(
+                  <div>
+                      <h1>{game['name']}</h1>
+                      <h3><span><img src={timeIcon} style={icon} alt=""/></span>{game['playtime']} min <span><img src={numberIcon} style={icon} alt=""/></span>{game['min']}-{game['max']} hráčov</h3>
+                      <p>{game['description']}</p>
+                  </div>
+              )})
           }
         <BackButton  onClick={this.backtrack} text="naspäť"/>
-
       </div>
     )
   }
 }
-
 
 export default Game
 

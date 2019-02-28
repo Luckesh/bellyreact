@@ -5,7 +5,6 @@ import Modal from 'react-modal';
 
 Modal.setAppElement('#root')
 
-
 export class SearchGenre extends Component {
 
     constructor () {
@@ -25,14 +24,14 @@ export class SearchGenre extends Component {
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
       }
-      
-      handleOpenModal () {
+
+    handleOpenModal () {
         this.setState({ showModal: true });
-      }
-      
-      handleCloseModal () {
+    }
+
+    handleCloseModal () {
         this.setState({ showModal: false });
-      }
+    }
 
     continue = e => {
         this.props.nextStep();
@@ -103,7 +102,6 @@ export class SearchGenre extends Component {
 
 export default SearchGenre
 
-
 const pole = {
     margin: '0 auto',
     width: 'auto',
@@ -119,7 +117,6 @@ const help = {
     boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
     cursor: 'pointer',
 }
-
 
 const cta = {
     padding: '15px 15px',
@@ -143,7 +140,6 @@ const modalStyle = {
         fontSize: '15px'
     }
 }
-
 
 const closeButton = {
     position: 'fixed',

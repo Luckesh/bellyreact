@@ -42,20 +42,14 @@ const rlStyle =
         height: '20px',
     };
   
-  
-
-
-
-
 export class SearchTime extends Component {
   
     state = {
         min: 15,
-        max: 60
+        max: 60,
     }
 
     log = value => {
-        console.log('kokotko');
         console.log(value); //eslint-disable-line
         this.props.changeTime(value);
         this.setState({min:value[0]});
@@ -88,12 +82,3 @@ export class SearchTime extends Component {
 }
 
 export default SearchTime
-
-/*
-const pole = {
-    margin: '0 auto',
-    width: 'auto',
-    minHeight: '100px',
-    display: 'grid',
-    gridGap: '10px',
-}*/

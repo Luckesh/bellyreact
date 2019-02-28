@@ -1,5 +1,16 @@
 import React, { Component } from 'react'
 
+export default class ToggleButton extends Component {
+
+  render() {
+    return (
+      <div>
+        <p onClick={this.props.onClick} style={this.props.toggle ? btn : inactiveBtn} >{this.props.text}</p>
+      </div>
+    )
+  } 
+}
+
 const btn = {
   padding: '15px 15px',
   backgroundColor: 'white',
@@ -28,24 +39,6 @@ const inactiveBtn = {
   cursor: 'pointer',
   boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
   transition: '0.5s',
-}
-
-export default class ToggleButton extends Component {
-
-
- 
-
-  //nepouzivam momentalne trosku shite
-
-  
-  render() {
-    return (
-      <div>
-        <p onClick={this.props.onClick} style={this.props.toggle ? btn : inactiveBtn} >{this.props.text}</p>
-      </div>
-    )
-  }
-  
 }
 
 

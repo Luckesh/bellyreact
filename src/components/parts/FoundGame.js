@@ -7,18 +7,13 @@ export class FoundGame extends Component {
   }
 
   componentDidMount(){
-
-    fetch('http://192.168.0.19/backend/slim/public/api/pic/'+this.props.game['id'])
+    fetch('http://localhost/backend/slim/public/api/pic/'+this.props.game['id'])
       .then(res => res.blob())
       .then(img => {
           console.log(URL.createObjectURL(img));     
           this.setState({imgpath:URL.createObjectURL(img)});
-
       })
-
   }
-
-  //<img src={this.state.imgpath} alt="foto"/>
 
   render() {
     const hra = {
@@ -34,19 +29,10 @@ export class FoundGame extends Component {
       backgroundPosition: 'top center',
       borderRadius: '4px', 
       cursor: 'pointer',
-    }
-    
+    }    
     return (
-      <div onClick={() => this.props.chooseGame(this.props.game['id'])}style={hra}>        
-        <p>{this.props.game['name']}</p>
-      </div>
+      <div onClick={() => this.props.chooseGame(this.props.game['id'])}style={hra}></div>
     )
   }
-
-  
 }
-
-
-
-
 export default FoundGame
