@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 export default class LargeButton extends Component {
 
+
   render() {
     return (
       <div>

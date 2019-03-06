@@ -1,10 +1,56 @@
 body{
   background-color:lightgoldenrodyellow;
-  background-image: url(./images/zlybg.PNG);
-  background-size: cover;
   padding-bottom: 20px;
   height: 100%;
   text-align: center;
+  background-image: url(./images/zlybg.PNG);
+  background-size: cover;
+}
+
+.mobilbg{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 100vh;
+  z-index: 1;
+  top: -35px;
+  width: 400px;
+  
+
+}
+
+@media only screen and (min-width: 768px) {
+  body{
+    background-image: none;
+    background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-image: url(./images/mobilphoto.PNG);
+  }
+  .App{
+    position: absolute;
+    left: 50%;
+      transform: translate(-50%, 0);
+      border-radius: 7vh;
+     height: 90vh;
+     width: 45vh;
+    border: 3px solid black;
+    margin: 0 auto;  
+    top:30px;  
+    z-index: 1;  
+    background-size: cover;
+    background-image: url(./images/zlybg.PNG);
+    
+    overflow:auto;
+    -ms-overflow-style: none; 
+    overflow: -moz-scrollbars-none;
+
+  }
+
+  ::-webkit-scrollbar { 
+    display: none; 
+}
 }
 
 .landingPage{

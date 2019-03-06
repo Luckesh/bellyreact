@@ -5,6 +5,8 @@ import SearchTime from './SearchTime'
 import SearchGenre from './SearchGenre'
 import SearchResult from './SearchResult.js'
 import Game from './Game.js'
+import Catalogue from './Catalogue.js'
+
 
 export class GameFinder extends Component {
 
@@ -36,6 +38,18 @@ export class GameFinder extends Component {
     const { step } = this.state;
     this.setState({
       step: step - 1
+    });
+  };
+
+  showCatalogue = () => {
+    this.setState({
+      step: 7,
+    });
+  };
+
+  showRandomGame = () => {
+    this.setState({
+      step: 8,
     });
   };
 
@@ -71,6 +85,13 @@ export class GameFinder extends Component {
     .then(response => this.setState({response}))
   }
 
+  fetchCatalogue = () => {
+    //console.log('http://localhost/backend/slim/public/api/boardgameshis.state.minTime+'&maxtime='+this.state.maxTime+'&genres='+JSON.stringify(this.state.genres));
+    fetch('http://192.168.43.59/backend/slim/public/api/boardgames')    
+    .then(response => response.json())    
+    .then(response => this.setState({response}))
+  }
+
   newSearch = () => {
     this.setState({
         step: 1,
@@ -95,7 +116,7 @@ export class GameFinder extends Component {
     switch (step) {
         case 1:
             return(
-                <LandingPage prevStep ={this.prevStep} nextStep={this.nextStep}/>
+                <LandingPage showRandomGame={this.showRandomGame} showCatalogue={this.showCatalogue} prevStep ={this.prevStep} nextStep={this.nextStep}/>
             );
         case 2:
             return(
@@ -115,7 +136,15 @@ export class GameFinder extends Component {
             )
         case 6:
             return(
-                <Game chosenGame={this.state.chosenGame} prevStep ={this.prevStep}/>
+                <Game random={0} chosenGame={this.state.chosenGame} prevStep ={this.prevStep}/>
+            )
+        case 7:
+            return(
+                <Catalogue fetchCatalogue={this.fetchCatalogue} chooseGame={this.chooseGame} newSearch={this.newSearch} response={this.state.response}/>
+            )
+        case 8:
+            return(
+                <Game random={1} chosenGame={0} prevStep ={this.newSearch}/>
             )
         default:
             return(

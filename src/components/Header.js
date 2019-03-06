@@ -3,7 +3,7 @@ import React from 'react'
 export default function Header() {
   return (
     <React.Fragment>
-        <h1 style={titleStyle}>Belly Button</h1>
+        <a href="." style={{textDecoration:'none',}}><h1 style={titleStyle}>Belly Button</h1></a>
     </React.Fragment>
   )
 }
