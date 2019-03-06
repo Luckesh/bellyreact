@@ -16,7 +16,7 @@ export class Game extends Component {
     }
 
     componentDidMount(){
-    fetch('http://localhost/backend/slim/public/api/boardgames/'+this.props.chosenGame)    
+    fetch('http://192.168.43.59/backend/slim/public/api/boardgames/'+this.props.chosenGame)    
     .then(response => response.json())    
     .then(response => this.setState({response}));
     }

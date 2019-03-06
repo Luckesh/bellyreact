@@ -40,14 +40,15 @@ export class GameFinder extends Component {
   };
 
  chooseGame = id => {
-    const { step } = this.state;
+    //const { step } = this.state;
     console.log("id je "+id);
     this.setState({
-        step: step + 1,
+        step: 6,
         chosenGame: id,
     });
  }
 
+ 
   changeNumber = id => {
       this.setState({number:id})
   }
@@ -65,7 +66,7 @@ export class GameFinder extends Component {
 
   fetchGames = () => {
     console.log('http://localhost/backend/slim/public/api/boardgames/number='+this.state.number+'&mintime='+this.state.minTime+'&maxtime='+this.state.maxTime+'&genres='+JSON.stringify(this.state.genres));
-    fetch('http://localhost/backend/slim/public/api/boardgames/number='+this.state.number+'&mintime='+this.state.minTime+'&maxtime='+this.state.maxTime+'&genres='+JSON.stringify(this.state.genres))    
+    fetch('http://192.168.43.59/backend/slim/public/api/boardgames/number='+this.state.number+'&mintime='+this.state.minTime+'&maxtime='+this.state.maxTime+'&genres='+JSON.stringify(this.state.genres))    
     .then(response => response.json())    
     .then(response => this.setState({response}))
   }

@@ -15,8 +15,8 @@ export class LandingPage extends Component {
             <div>
                 <p onClick={this.continue} style={cta}>Vybrať hru</p>
             </div>
-            <Button text='Katalóg hier'/>
-            <Button text='Náhodná hra'/>
+            <Button  text='Katalóg hier'/>
+            <Button  text='Náhodná hra'/>
             </div>
           )
     }       
