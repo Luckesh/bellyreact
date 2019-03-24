@@ -9,9 +9,8 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-      <div className="mobilbg">
-        
-      </div>
+              
+      
       <div className="App">
         <Header/>
         <GameFinder/>
