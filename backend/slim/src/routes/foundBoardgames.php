@@ -17,23 +17,35 @@ $app->get('/api/boardgames/number={number}&mintime={mintime}&maxtime={maxtime}&g
     $mintime = json_decode($args['mintime']);
     $maxtime = json_decode($args['maxtime']);
 
-    //echo gettype($genres[2]);
+    //echo gettype($genres[2]); 
 
     $genreString="";
 
-    for($i=0; $i<sizeof($genres); $i++){
+    //echo $genres;
+
+    
+    foreach($genres as $name => $value){
         //echo "\n".$genres[$i]."\n";
-        if($genres[$i]==1){
-            $genreString=$genreString."IDgenre=".($i+1)." OR ";
+        if($value==1){
+            $genreString=$genreString."genre=\"".($name)."\" OR ";
         }
     }
         $genreString=substr($genreString,0,(strlen($genreString)-4));
 
-    //echo $genreString;
+   // echo $genreString;
 
-    $sql = "SELECT * FROM boardgames WHERE (min<=$number AND max>=$number)
+
+
+    $sql= "SELECT games.id as id, name, min, max, playtime, genre FROM games 
+    JOIN boardgamegenre ON games.id=IDgame 
+    JOIN genres ON boardgamegenre.IDgenre=genres.id
+    WHERE (min<=$number AND max>=$number)
     AND (playtime <= $maxtime AND playtime >= $mintime)
-    AND ($genreString);";
+    AND ($genreString)
+    GROUP BY name;";
+
+    //echo $sql;
+    
     try{
         $db = new db();
         $db = $db->connect();

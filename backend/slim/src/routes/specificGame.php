@@ -5,18 +5,25 @@ use \Psr\Http\Message\ResponseInterface as Response;
 //$app = new \Slim\App;
 
 //get all
-$app->get('/api/boardgames', function(Request $request, Response $response){
+$app->get('/api/boardgames/{id}', function(Request $request, Response $response, array $args){
     //echo 'customeritos';
     /*
     $sql = 'SELECT name, gamelength, CONCAT(min, "-", max) AS "players" FROM boardgames
     JOIN playtime ON boardgames.id=playtime.id;';
     */
-    $sql = 'SELECT * FROM games;';
+
+    $id = json_decode($args['id']);
+    //$countVisit = json_decode($args['countVisit']);
+
+
+
+    //echo gettype($genres[2]);
+    //echo $genreString;
+
+    $sql = "SELECT * FROM games WHERE id=$id;";
     try{
         $db = new db();
-
         $db = $db->connect();
-
         $stmt = $db->query($sql);
         
         $boardgames=$stmt->fetchAll(PDO::FETCH_OBJ);
@@ -25,6 +32,13 @@ $app->get('/api/boardgames', function(Request $request, Response $response){
         //echo json_encode(utf8_encode($boardgames));
         //echo '/json';
         $db = null;
+
+        $sql = "UPDATE games SET visits=visits+1 WHERE id=$id;";
+
+        $db = new db();
+        $db = $db->connect();
+        $stmt = $db->query($sql);
+
         //$http_origin=$_SERVER['HTTP_ORIGIN'];
 
         //$response->withJson($customers);

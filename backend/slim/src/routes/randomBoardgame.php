@@ -5,18 +5,22 @@ use \Psr\Http\Message\ResponseInterface as Response;
 //$app = new \Slim\App;
 
 //get all
-$app->get('/api/boardgames', function(Request $request, Response $response){
+$app->get('/api/boardgames/random', function(Request $request, Response $response, array $args){
     //echo 'customeritos';
     /*
     $sql = 'SELECT name, gamelength, CONCAT(min, "-", max) AS "players" FROM boardgames
     JOIN playtime ON boardgames.id=playtime.id;';
     */
-    $sql = 'SELECT * FROM games;';
+
+
+
+    $sql= "SELECT * FROM games ORDER BY RAND() LIMIT 1;";
+
+    //echo $sql;
+    
     try{
         $db = new db();
-
         $db = $db->connect();
-
         $stmt = $db->query($sql);
         
         $boardgames=$stmt->fetchAll(PDO::FETCH_OBJ);

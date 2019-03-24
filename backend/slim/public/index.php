@@ -13,9 +13,11 @@ $app->get('/hello/{name}', function (Request $request, Response $response, array
     return $response;
 });
 
+require '../src/routes/randomBoardgame.php';
 require '../src/routes/boardgames.php';
 require '../src/routes/foundBoardgames.php';
 require '../src/routes/pic.php';
+require '../src/routes/specificGame.php';
 
 
 

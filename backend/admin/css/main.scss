@@ -1,0 +1,321 @@
+
+$desktop-width: 768px;
+
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) {
+      @content;
+    }
+  }
+
+body{
+    background-color: #F5EFE1;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-image: url('../images/zlybg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body *{
+    margin:0;
+    padding:0;
+    text-decoration: none;
+}
+
+.wrapper{
+    //padding: 5px;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+    //background-color: #f2efe5;
+
+ 
+}
+
+header{
+    //margin-bottom: 10px;
+    background-color: #F5EFE1;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);    h1{
+        text-align: center;
+    }
+    h1{
+        padding: 5px;
+        color: rgb(80, 71, 62);
+        font-family: Helvetica;
+    }
+    img{
+        height: 30px;        
+    }
+    
+    .topRow{
+        background-color: #e9ddc2;
+        display:grid;
+        grid-template-columns: 30% auto 30%;
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @include desktop(){
+            #menuIcon{
+                display: none;
+            }
+        }
+
+    }
+
+
+    #menu{
+        transition: 0.2s all;
+        display: grid;
+        max-height: 0px;
+        overflow: hidden;
+        background-color: #F5EFE1;
+        grid-template-columns: 30% 70%;
+        max-width: 360px;
+        margin: 0 auto;
+        > *{
+            margin-top: 7px;       
+            margin-left: 10px;  
+            margin-bottom: 7px;   
+            display: flex;
+            justify-self: center;
+            align-self: center;
+            cursor: pointer;
+        }
+        form{
+            *{
+                height: 2.1em;
+                font-size: 14px;
+                border: none;
+                
+            }
+            button{
+                width: 2.5em;
+                padding-top: 9px;
+                cursor: pointer;
+            }
+        }
+        @include desktop(){
+            max-height: 50px;
+            overflow: visible;
+            position: absolute;
+            top:0;
+            display: grid;
+            right: 35px;
+            background: none;
+            
+        }
+    }
+}
+
+.games{
+    margin-top: 20px;
+    @include desktop(){
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+}
+
+.gameWrapper{
+    width: 90%;
+    margin: 0 auto;
+    max-width: 350px;
+}
+
+.gameWrapper:nth-child(odd){    
+        .game{
+            background-color: #EDDBAC;
+        }
+}
+
+.gameWrapper:nth-child(even){
+    .game{
+        background-color: #FFEEC1;
+    }
+}
+
+
+.game{
+    //border: 1px solid brown;
+    //background-color: #EDDBAC;
+    display: grid;
+    //width:90%;
+    grid-template-columns: 25% auto 15% 20%;
+    padding: 5px;
+    margin: 10px 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    *{
+        display: flex;
+        //justify-content: center;
+        align-items: center;
+    }
+
+    p{
+        font-size: 1em;
+        padding: 5px;
+    }
+
+    img{
+        display: flex;
+        justify-self: center;
+        height:10vh;
+        width:auto;
+        max-width: 70px;        
+    }
+    .edit{
+        height: 3.5vh;
+        align-self: center;
+        cursor: pointer;
+    }
+}
+
+.active{
+    display: grid !important;
+    max-height:48px !important;
+}
+
+
+.addWrap{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding:40px;
+    background-color: #f2efe5;
+    margin: 0 auto;
+    margin-top: 20px;
+    
+    
+    @include desktop(){
+       // color: red;    
+       max-width: 600px;
+       display: grid;
+    
+       grid-template-areas: 
+               "add add photo"
+               //"add photo"
+               "zaner zaner zaner"
+               "popis popis popis"
+               ;
+    }
+  
+
+    >div{
+        *{
+            display: block;
+        }
+        label{
+            color: gray;
+        }
+    }
+}
+
+#add{
+    grid-area: add;
+    input{
+        border:none;
+        height:25px;
+        padding:2px;
+        margin: 5px 0;
+    }
+
+    #number, #time{
+        input{
+            width: 40px;
+            display: inline-block;
+            text-align: center;
+            
+        }
+        
+        p{
+            display: inline-block;
+            color: gray;
+
+        }
+    }
+}
+
+
+
+#photo{
+    //display: flex;
+    //justify-items: center;
+    //align-items: center;
+    padding-top:1vh;
+    max-width: 200px;
+    grid-area: photo;
+    justify-self: end;
+    #image-holder{
+        width:150px;
+        height:150px;
+        //background-color:gray;
+        img{
+            max-width: 150px;
+            max-height: 150px;
+        }
+    }
+    input[type=file]{
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+    label{
+        color: white;
+        text-align: center;
+        background-color: #f6c56c;
+        padding: 3px 7px;
+        cursor: pointer;
+        margin-top: 5px;
+
+    }
+}
+
+#zaner{
+    grid-area: zaner;
+    div{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        @include desktop(){
+            grid-template-columns: 1fr 1fr 1fr;
+        } 
+        *{
+            display:inline-block;
+        }
+    }
+}
+
+#popis{
+    grid-area: popis;
+
+    textarea{
+        width: 100%;
+        border: none;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 5px 0;
+        padding: 5px;
+        //margin: 0 auto;
+    }
+}
+
+.submit{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: orange;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 17px;
+}
+
+.successText{
+    color: green;
+    text-align: center;
+    margin-top: 5px;
+}

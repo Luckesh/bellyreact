@@ -1,0 +1,336 @@
+body {
+  background-color: #F5EFE1;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-image: url("../images/zlybg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body * {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+header {
+  background-color: #F5EFE1;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+header h1 {
+  text-align: center;
+}
+
+header h1 {
+  padding: 5px;
+  color: #50473e;
+  font-family: Helvetica;
+}
+
+header img {
+  height: 30px;
+}
+
+header .topRow {
+  background-color: #e9ddc2;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% auto 30%;
+      grid-template-columns: 30% auto 30%;
+}
+
+header .topRow div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (min-width: 768px) {
+  header .topRow #menuIcon {
+    display: none;
+  }
+}
+
+header #menu {
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  display: -ms-grid;
+  display: grid;
+  max-height: 0px;
+  overflow: hidden;
+  background-color: #F5EFE1;
+  -ms-grid-columns: 30% 70%;
+      grid-template-columns: 30% 70%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+header #menu > * {
+  margin-top: 7px;
+  margin-left: 10px;
+  margin-bottom: 7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  cursor: pointer;
+}
+
+header #menu form * {
+  height: 2.1em;
+  font-size: 14px;
+  border: none;
+}
+
+header #menu form button {
+  width: 2.5em;
+  padding-top: 9px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  header #menu {
+    max-height: 50px;
+    overflow: visible;
+    position: absolute;
+    top: 0;
+    display: -ms-grid;
+    display: grid;
+    right: 35px;
+    background: none;
+  }
+}
+
+.games {
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .games {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
+  }
+}
+
+.gameWrapper {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 350px;
+}
+
+.gameWrapper:nth-child(odd) .game {
+  background-color: #EDDBAC;
+}
+
+.gameWrapper:nth-child(even) .game {
+  background-color: #FFEEC1;
+}
+
+.game {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 25% auto 15% 20%;
+      grid-template-columns: 25% auto 15% 20%;
+  padding: 5px;
+  margin: 10px 0;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.game * {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.game p {
+  font-size: 1em;
+  padding: 5px;
+}
+
+.game img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: center;
+  height: 10vh;
+  width: auto;
+  max-width: 70px;
+}
+
+.game .edit {
+  height: 3.5vh;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  cursor: pointer;
+}
+
+.active {
+  display: -ms-grid !important;
+  display: grid !important;
+  max-height: 48px !important;
+}
+
+.addWrap {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  padding: 40px;
+  background-color: #f2efe5;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .addWrap {
+    max-width: 600px;
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: "add add photo" "zaner zaner zaner" "popis popis popis";
+  }
+}
+
+.addWrap > div * {
+  display: block;
+}
+
+.addWrap > div label {
+  color: gray;
+}
+
+#add {
+  grid-area: add;
+}
+
+#add input {
+  border: none;
+  height: 25px;
+  padding: 2px;
+  margin: 5px 0;
+}
+
+#add #number input, #add #time input {
+  width: 40px;
+  display: inline-block;
+  text-align: center;
+}
+
+#add #number p, #add #time p {
+  display: inline-block;
+  color: gray;
+}
+
+#photo {
+  padding-top: 1vh;
+  max-width: 200px;
+  grid-area: photo;
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+#photo #image-holder {
+  width: 150px;
+  height: 150px;
+}
+
+#photo #image-holder img {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+#photo input[type=file] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+#photo label {
+  color: white;
+  text-align: center;
+  background-color: #f6c56c;
+  padding: 3px 7px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+#zaner {
+  grid-area: zaner;
+}
+
+#zaner div {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+@media (min-width: 768px) {
+  #zaner div {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+#zaner div * {
+  display: inline-block;
+}
+
+#popis {
+  grid-area: popis;
+}
+
+#popis textarea {
+  width: 100%;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 5px 0;
+  padding: 5px;
+}
+
+.submit {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: orange;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 17px;
+}
+
+.successText {
+  color: green;
+  text-align: center;
+  margin-top: 5px;
+}
+/*# sourceMappingURL=main.css.map */
