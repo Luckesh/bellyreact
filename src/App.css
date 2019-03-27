@@ -80,7 +80,7 @@ h2{
 .searchGenre{
   display: grid;
   min-height: 85vh;
-  grid-template-rows: 15% auto 40px;
+  grid-template-rows: 100px auto 40px;
 }
 
 
