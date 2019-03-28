@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import FoundGame from './FoundGame.js'
-import Button from './LargeButton.js'
 
 export class FoundGames extends Component {  
   render() {
@@ -12,7 +11,6 @@ export class FoundGames extends Component {
             <FoundGame chooseGame={this.props.chooseGame} key={game['id']}game={game}/>
           )})
         }
-      <Button onClick={ this.props.startOver } text={"Nové vyhľadávanie"}/>
       </div>        
       )  
   }
@@ -23,6 +21,7 @@ const pole = {
   width: 'auto',
   display: 'grid',
   gridGap: '20px',
+  marginBottom: '10px',
 }
 
 export default FoundGames

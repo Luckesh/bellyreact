@@ -23,7 +23,7 @@ export class GameFinder extends Component {
         number: 0,
         minTime: 15,
         maxTime: 60,
-        response: [],
+        response: [0],
         chosenGame: 0,
     };
 
